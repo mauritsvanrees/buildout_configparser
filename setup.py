@@ -39,7 +39,7 @@ setup(
     install_requires=["setuptools",],
     include_package_data=True,
     extras_require = dict(
-        test=['manuel']),
+        test=['pytest']),
     classifiers=[
         "Intended Audience :: Developers",
         "License :: OSI Approved :: Zope Public License",
