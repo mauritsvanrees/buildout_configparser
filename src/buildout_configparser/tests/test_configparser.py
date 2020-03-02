@@ -296,3 +296,14 @@ def test_preprocessing_implication():
 => part1 part2
 """
     assert parse(text) == {"foo": {"<part-dependencies>": "part1 part2"}}
+
+
+def test_case_sensitive():
+    # Options are case sensitive.
+    # In default configparser, the next would give a parse error.
+    text = """
+[versions]
+Foo = 2
+foo = 1
+"""
+    assert parse(text) == {"versions": {"Foo": "2", "foo": "1"}}
