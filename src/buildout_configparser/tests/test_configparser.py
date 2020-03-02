@@ -2,15 +2,16 @@
 from buildout_configparser import configparser
 
 try:
-    # Python 3
-    import io as StringIO
-except ImportError:
     # Python 2
-    import StringIO
+    unicode
+    from io import BytesIO as StringIO
+except NameError:
+    # Python 3
+    from io import StringIO
 
 
 def parse(config, *args, **kw):
-    return configparser.parse(StringIO.StringIO(config), "test", *args, **kw)
+    return configparser.parse(StringIO(config), "test", *args, **kw)
 
 
 def test_well_formed():
