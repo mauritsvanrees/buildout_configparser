@@ -135,8 +135,9 @@ def test_title_line_trailing_comments():
     # string-escaped.
     # The comment can contain arbitrary characters, including brackets that are also
     # used to mark the end of a section header and may be ambiguous to recognize in
-    # some cases. For example, valid sections lines include::
-    text = """
+    # some cases. For example, valid sections lines include the following.
+    # Note: we use **raw** text here, otherwise this fails.
+    text = r"""
 [ a ]
 a=1
 
