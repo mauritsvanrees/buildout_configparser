@@ -41,6 +41,7 @@ setup(
     extras_require = dict(
         test=['pytest']),
     classifiers=[
+        "Development Status :: 2 - Pre-Alpha",
         "Intended Audience :: Developers",
         "License :: OSI Approved :: Zope Public License",
         "Programming Language :: Python",
