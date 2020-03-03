@@ -21,7 +21,9 @@ def read(*rnames):
         return f.read()
 
 
-long_description = read("README.rst") + "\n" + read("IDEAS.rst") + "\n" + read("CHANGES.rst")
+long_description = (
+    read("README.rst") + "\n" + read("IDEAS.rst") + "\n" + read("CHANGES.rst")
+)
 
 
 setup(
@@ -38,8 +40,7 @@ setup(
     package_dir={"": "src"},
     install_requires=["setuptools",],
     include_package_data=True,
-    extras_require = dict(
-        test=['pytest']),
+    extras_require=dict(test=["pytest"]),
     classifiers=[
         "Development Status :: 2 - Pre-Alpha",
         "Intended Audience :: Developers",
