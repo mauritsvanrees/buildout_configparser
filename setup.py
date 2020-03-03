@@ -21,7 +21,7 @@ def read(*rnames):
         return f.read()
 
 
-long_description = read("README.rst") + "\n" + read("CHANGES.rst")
+long_description = read("README.rst") + "\n" + read("IDEAS.rst") + "\n" + read("CHANGES.rst")
 
 
 setup(
