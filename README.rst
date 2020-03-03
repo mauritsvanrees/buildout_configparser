@@ -11,6 +11,7 @@ Buildout configurations use an `INI file format
 A configuration is a collection of named sections containing named
 options.
 
+
 Section names
 -------------
 
@@ -23,9 +24,7 @@ braces, curly braces (``{`` or ``}``), pound signs (``#``), colons
 and trailing whitespace, which is ignored.
 
 An optional condition is separated from the name by a colon and is a
-Python expression.  It may not contain a pound sign or semi-colon.  See
-the section on :ref:`conditional sections <conditional-sections>` for
-an example and more details.
+Python expression.  It may not contain a pound sign or semi-colon.
 
 A comment, preceded by a pound sign or semicolon may follow the
 section name, as in:
@@ -34,7 +33,6 @@ section name, as in:
 
    [buildout] # This is the buildout section
 
-.. -> header
 
 Options
 -------
@@ -45,16 +43,6 @@ and a value:
 .. code-block:: ini
 
    parts = py
-
-.. -> option
-
-    >>> import six
-    >>> import zc.buildout.configparser
-    >>> def parse(s):
-    ...     return zc.buildout.configparser.parse(six.StringIO(s), 'test')
-    >>> from pprint import pprint
-    >>> pprint(parse(header + option))
-    {'buildout': {'parts': 'py'}}
 
 Option names may have any characters other than whitespace, square
 braces, curly braces, equal signs, or colons.  There may be and
@@ -73,7 +61,6 @@ Option values may be continued on multiple lines, and may contain blank lines:
 
            test
 
-.. -> option
 
 Whitespace in option values
 ___________________________
@@ -95,10 +82,6 @@ data on the first line
         py
         test
 
-  .. -> val
-
-      >>> eq(parse(header + option)['buildout']['parts'] + '\n', val)
-
 no data on the first line
   Internal blank lines are retained and common leading white space is stripped.
 
@@ -112,8 +95,6 @@ no data on the first line
 
              return
 
-  .. -> option
-
   is::
 
      if x == 1:
@@ -121,9 +102,6 @@ no data on the first line
 
          return
 
-  .. -> val
-
-       >>> eq(parse(header + option)['buildout']['code'] + '\n', val)
 
 Special "implication" syntax for the ``<part-dependencies>`` option
 ____________________________________________________________________
@@ -146,6 +124,7 @@ This is equivalent to:
 and declares that the named parts are dependencies of the part in
 which this option appears.
 
+
 Comments and blank lines
 ------------------------
 
@@ -154,11 +133,6 @@ comments::
 
   # This is a comment
   ; This too
-
-.. -> comment
-
-       >>> eq(parse(comment + header + comment + option + comment )
-       ...    ['buildout']['code'] + '\n', val)
 
 As mentioned earlier, comments can also appear after section names.
 
